@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="ThumbPhotoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-b8-wVD">
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-Bp-Nql">
+                        <rect key="frame" x="122" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="YSL-1y-4sQ"/>
+                            <constraint firstAttribute="width" constant="25" id="qpk-oc-fin"/>
+                        </constraints>
+                        <state key="normal" image="checkbox_pic_non2"/>
+                        <state key="selected" image="checkbox_pic2"/>
+                        <connections>
+                            <action selector="selectedClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Jha-yC-qdI"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="gcC-b8-wVD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OHb-8t-fcH"/>
+                <constraint firstAttribute="trailing" secondItem="Cgo-Bp-Nql" secondAttribute="trailing" constant="5" id="V3N-QI-Y4c"/>
+                <constraint firstAttribute="trailing" secondItem="gcC-b8-wVD" secondAttribute="trailing" id="ohz-0M-XfZ"/>
+                <constraint firstItem="Cgo-Bp-Nql" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="seh-nZ-FY2"/>
+                <constraint firstAttribute="bottom" secondItem="gcC-b8-wVD" secondAttribute="bottom" id="uQD-om-c85"/>
+                <constraint firstItem="gcC-b8-wVD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yMv-t5-2Je"/>
+            </constraints>
+            <size key="customSize" width="152" height="152"/>
+            <connections>
+                <outlet property="selectedButton" destination="Cgo-Bp-Nql" id="kQO-M2-66b"/>
+                <outlet property="thumbImageView" destination="gcC-b8-wVD" id="GQR-IK-xc5"/>
+            </connections>
+            <point key="canvasLocation" x="151" y="105"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="checkbox_pic2" width="32" height="32"/>
+        <image name="checkbox_pic_non2" width="32" height="32"/>
+    </resources>
+</document>

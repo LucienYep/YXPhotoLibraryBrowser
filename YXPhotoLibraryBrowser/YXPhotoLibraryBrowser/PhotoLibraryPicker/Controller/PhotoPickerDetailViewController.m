@@ -12,6 +12,8 @@
 #import "AcquirePhotoResourceTool.h"
 #import "PhotoAsset.h"
 #import "PhotoBrowserViewController.h"
+#import "WarningView.h"
+#import "StatusAlertView.h"
 
 static CGFloat YX_CELL_ROW = 4;
 static CGFloat YX_CELL_MARGIN = 2;
@@ -214,6 +216,13 @@ NSString * const sendSelectImageNotification = @"SendSelectImageNotification";
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:sendSelectImageNotification object:self userInfo:@{@"imagelist":[imageList copy]}];
     
+    StatusAlertView *statusAlertView = [StatusAlertView sharedStatusAlertView];
+    CGPoint point = self.view.center;
+    point.y = point.y * 1/8;
+    statusAlertView.center = point;
+    [[UIApplication sharedApplication].keyWindow addSubview:statusAlertView];
+    [statusAlertView show];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
@@ -244,7 +253,11 @@ NSString * const sendSelectImageNotification = @"SendSelectImageNotification";
             NSInteger maxSelectedCount = self.maxSelectedCount ? self.maxSelectedCount : kDefaultMaxSelectedCount;
             if (_self.selectedArray.count >= maxSelectedCount) {
           
-                Alert(@"最多可选择%ld张图片",maxSelectedCount);
+//                Alert(@"最多可选择%ld张图片",maxSelectedCount);
+                WarningView *warningView = [WarningView sharedWarningView];
+                [self.view addSubview:warningView];
+                NSString *warningStr = [NSString stringWithFormat:@"最多可以选择%ld张图片",maxSelectedCount];
+                warningView.warningStr = warningStr;
 
             }else{
                 [_self.selectedArray addObject:asset];

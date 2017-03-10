@@ -9,6 +9,7 @@
 #import "PhotoBrowserViewController.h"
 #import "PhotoBrowserCollectionViewCell.h"
 #import "TopToolbar.h"
+#import "WarningView.h"
 
 static NSString *const _cellIdentifier = @"cell";
 
@@ -141,7 +142,11 @@ static NSString *const _cellIdentifier = @"cell";
             NSInteger maxSelectedCount = self.maxSelectedCount ? self.maxSelectedCount : kDefaultMaxSelectedCount;
             if (self.selectedArray.count >= maxSelectedCount) {
                 
-                Alert(@"最多可选择%ld张图片",maxSelectedCount);
+//                Alert(@"最多可选择%ld张图片",maxSelectedCount);
+                WarningView *warningView = [WarningView sharedWarningView];
+                [self.view addSubview:warningView];
+                NSString *warningStr = [NSString stringWithFormat:@"最多可以选择%ld张图片",maxSelectedCount];
+                warningView.warningStr = warningStr;
                 self.toolbar.selectBtn.selected = NO;
             }else{
 

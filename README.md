@@ -14,3 +14,5 @@ UINavigationController *nav = [[UINavigationController alloc] initWithRootViewCo
 [self presentViewController:nav animated:true completion:nil];
 ```
 更详尽的介绍请移步[使用介绍](http://www.jianshu.com/p/9c2da8853435),谢谢!
+
+17.7.3 update : 增加cocoaPods集成功能,便于集成更新
